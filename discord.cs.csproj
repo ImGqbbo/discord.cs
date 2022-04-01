@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\catal\Downloads\discord.cs.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{500B9753-3434-4D9F-9A7F-A7A4B72B88CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>discord.cs</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Discord</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="websocket-sharp, Version=1.0.2.36182, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>packages\better-websocket-sharp.1.0.2.1\lib\net35\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gateway\ActivityType.cs" />
+    <Compile Include="Gateway\DiscordStatus.cs" />
+    <Compile Include="Rest\CDN\DiscordImage.cs" />
+    <Compile Include="Rest\Channel\ChannelType.cs" />
+    <Compile Include="Rest\Channel\DiscordChannel.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\SlashCommandBuilder.cs" />
+    <Compile Include="Rest\Message\Components\Modals\DiscordTextInputBuilder.cs" />
+    <Compile Include="Rest\Message\MessageExtensions.cs" />
+    <Compile Include="Rest\Channel\PrivateChannel.cs" />
+    <Compile Include="Rest\DiscordClient.cs" />
+    <Compile Include="Rest\Embed\EmbedAuthor.cs" />
+    <Compile Include="Rest\Embed\EmbedBuilder.cs" />
+    <Compile Include="Rest\Embed\EmbedField.cs" />
+    <Compile Include="Rest\Embed\EmbedFooter.cs" />
+    <Compile Include="Rest\Embed\EmbedImage.cs" />
+    <Compile Include="Rest\Guild\GuildMember.cs" />
+    <Compile Include="Rest\Guild\GuildMemberProperties.cs" />
+    <Compile Include="Rest\Guild\GuildMemberExtensions.cs" />
+    <Compile Include="Rest\Interaction\InteractionExtensions.cs" />
+    <Compile Include="Rest\Interaction\InteractionCallbackType.cs" />
+    <Compile Include="Rest\Interaction\InteractionData.cs" />
+    <Compile Include="Rest\Interaction\InteractionResponseProperties.cs" />
+    <Compile Include="Rest\Interaction\InteractionType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\ApplicationCommandOptionType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\CommandOptionChoice.cs" />
+    <Compile Include="Rest\Message\Components\Buttons\ButtonBuilder.cs" />
+    <Compile Include="Rest\Message\Components\Buttons\ButtonComponent.cs" />
+    <Compile Include="Rest\Message\Components\ComponentType.cs" />
+    <Compile Include="Rest\Message\Components\Buttons\DiscordButtonStyle.cs" />
+    <Compile Include="Rest\Message\Components\DiscordActionRow.cs" />
+    <Compile Include="Rest\Message\Components\DiscordFormComponent.cs" />
+    <Compile Include="Rest\Message\Components\Modals\ModalBuilder.cs" />
+    <Compile Include="Rest\Message\Components\Modals\ModalComponent.cs" />
+    <Compile Include="Rest\Message\Components\Modals\DiscordTextInputStyle.cs" />
+    <Compile Include="Rest\Emoji\DiscordEmoji.cs" />
+    <Compile Include="Rest\Message\DiscordMessage.cs" />
+    <Compile Include="Rest\Message\MessageProperties.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\ApplicationCommandType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\DiscordCommandOption.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\SlashCommandsExtensions.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\SlashCommand.cs" />
+    <Compile Include="Rest\User\DiscordUser.cs" />
+    <Compile Include="Rest\User\NitroSubscriptionType.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Http\DiscordHttpResponse.cs" />
+    <Compile Include="Http\DiscordHttpClient.cs" />
+    <Compile Include="Gateway\ApiVersion.cs" />
+    <Compile Include="Gateway\DiscordGateawayIntent.cs" />
+    <Compile Include="Gateway\DiscordSocketClient.cs" />
+    <Compile Include="Gateway\DiscordSocketHandler.cs" />
+    <Compile Include="Gateway\DiscordSocketSession.cs" />
+    <Compile Include="Gateway\EventArgs\InteractionEventArgs.cs" />
+    <Compile Include="Gateway\EventArgs\LoginEventArgs.cs" />
+    <Compile Include="Gateway\EventArgs\MessageEventArgs.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
