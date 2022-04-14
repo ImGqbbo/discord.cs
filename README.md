@@ -5,7 +5,7 @@ Unofficial API wrapper for https://discord.com.
 As first decide if use the websocket client or the rest client
 
 Websocket:
-```
+```csharp
 DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketHandler() { ApiVersion = ApiVersion.V9 });
 
 client.Authenticate("your bot token here");
@@ -16,7 +16,7 @@ client.OnLoggedIn += (s, e) =>
 ```
 
 Rest:
-```
+```csharp
 DiscordClient client = new DiscordClient("your bot token");
 client.SendMessage(123456789012345678, "Hello, world!");
 ```
