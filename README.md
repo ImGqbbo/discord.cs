@@ -1,5 +1,5 @@
 # discord.cs
-Unofficial API wrapper for https://discord.com
+Unofficial API wrapper for https://discord.com.
 
 # How to use it?
 As first decide if use the websocket client or the rest client
@@ -24,3 +24,5 @@ client.SendMessage(123456789012345678, "Hello, world!");
 # Contact or report a bug
 - Discord: ImGqbbo#9549
 - Telegram: @ImGqbbo
+
+Ispired by Anarchy & discord.js
