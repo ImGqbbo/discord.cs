@@ -15,5 +15,11 @@ namespace Discord
 
         [JsonProperty("locale")]
         public string Locale { get; private set; }
+
+        [JsonProperty("premium_type")]
+        public NitroSubscriptionType? PremiumType { get; private set; }
+
+        [JsonProperty("public_flags")]
+        public uint? PublicFlags { get; private set; }
     }
 }
