@@ -5,26 +5,40 @@ namespace Discord
 {
     public class DiscordClient
     {
-        public string Token { get; set; }
+        private string _token { get; set; }
+        public string Token 
+        { 
+            get
+            {
+                return _token; 
+            }
+            set
+            {
+                _token = value;
+
+                User = this.GetCurrentUser();
+            }
+        }
 
         public DiscordHttpClient HttpClient { get; internal set; }
 
         public WebProxy Proxy { get; set; }
 
-        public DiscordClient() => this.HttpClient = new DiscordHttpClient()
-        {
-            Proxy = this.Proxy,
-            Token = this.Token
-        };
+        public DiscordClientUser User { get; private set; }
 
-        public DiscordClient(string token)
+        internal bool _logResponses;
+
+        public DiscordClient()
         {
+            HttpClient = new DiscordHttpClient(this);
+        }
+
+        public DiscordClient(string token, bool logHttpResponses = false)
+        {
+            HttpClient = new DiscordHttpClient(this);
+
             Token = "Bot " + token;
-            HttpClient = new DiscordHttpClient()
-            {
-                Proxy = Proxy,
-                Token = Token
-            };
+            _logResponses = logHttpResponses;
         }
     }
 }

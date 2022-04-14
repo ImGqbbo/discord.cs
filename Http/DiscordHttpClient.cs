@@ -8,43 +8,44 @@ namespace Discord.Http
 {
     public class DiscordHttpClient
     {
-        private static HttpClient httpClient;
-        public string Token;
-        public WebProxy Proxy;
+        private static DiscordClient _client;
+        private static HttpClient _httpClient;
 
-        public DiscordHttpClient()
+        public DiscordHttpClient(DiscordClient client)
         {
-            if (Proxy != null)
-                httpClient = new HttpClient(new HttpClientHandler()
-                {
-                    Proxy = Proxy,
-                    UseProxy = true
-                });
-            else
-                httpClient = new HttpClient();
+            _client = client;
+            _httpClient = new HttpClient();
         }
 
         private async Task<DiscordHttpResponse> RawAsync(HttpMethod method, string endpoint, string data = null)
         {
-            httpClient.DefaultRequestHeaders.Clear();
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", Token);
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "discord.cs/1.0");
+            _httpClient.DefaultRequestHeaders.Clear();
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", _client.Token);
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "discord.cs/0.1");
+
             if (data != null)
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
             HttpRequestMessage message = new HttpRequestMessage()
             {
                 RequestUri = new Uri(endpoint),
                 Method = method
             };
+
             if (data != null)
                 message.Content = new StringContent(data, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.SendAsync(message);
+
+            HttpResponseMessage response = await _httpClient.SendAsync(message);
             DiscordHttpResponse discordHttpResponse = new DiscordHttpResponse()
             {
-                Result = response.Content.ReadAsStringAsync().Result,
+                Result = await response.Content.ReadAsStringAsync(),
                 StatusCode = response.StatusCode
             };
+
+            if (_client._logResponses)
+            {
+                Console.WriteLine($"[Http] Response from ({endpoint}) => {discordHttpResponse.Result}");
+            }
 
             return discordHttpResponse;
         }

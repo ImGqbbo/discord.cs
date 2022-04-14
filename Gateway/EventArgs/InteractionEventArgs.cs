@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Discord.Gateway
 {
@@ -33,5 +34,20 @@ namespace Discord.Gateway
 
         [JsonProperty("type")]
         public InteractionType Type { get; private set; }
+
+        public bool IsCommand() => Type == InteractionType.ApplicationCommand;
+        
+        public SlashCommandOption GetSubCommand()
+        {
+            foreach (var option in Data.Options)
+            {
+                if (option.Type == ApplicationOptionType.SubCommand)
+                {
+                    return option;
+                }
+            }
+
+            throw new ArgumentException("Cannot find that option.");
+        }
     }
 }

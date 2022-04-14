@@ -43,31 +43,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gateway\ActivityType.cs" />
-    <Compile Include="Gateway\DiscordStatus.cs" />
+    <Compile Include="Gateway\Activities\ActivityType.cs" />
+    <Compile Include="Gateway\Activities\DiscordStatus.cs" />
+    <Compile Include="Gateway\EventArgs\GuildMembersChunkEventArgs.cs" />
+    <Compile Include="Gateway\Guild\GuildMembersExtensions.cs" />
     <Compile Include="Rest\CDN\DiscordImage.cs" />
     <Compile Include="Rest\Channel\ChannelType.cs" />
     <Compile Include="Rest\Channel\DiscordChannel.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\SlashCommandBuilder.cs" />
+    <Compile Include="Rest\Guild\Bans\GuildBan.cs" />
+    <Compile Include="Rest\Guild\Roles\GuildRole.cs" />
+    <Compile Include="Rest\Guild\SocketGuild.cs" />
+    <Compile Include="Rest\Guild\UnavailableGuild.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Extensions\SlashCommandOption.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Builder\SlashCommandBuilder.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashChoice.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashCommand.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashOption.cs" />
     <Compile Include="Rest\Message\Components\Modals\DiscordTextInputBuilder.cs" />
-    <Compile Include="Rest\Message\MessageExtensions.cs" />
+    <Compile Include="Rest\Message\Extensions\MessageExtensions.cs" />
     <Compile Include="Rest\Channel\PrivateChannel.cs" />
     <Compile Include="Rest\DiscordClient.cs" />
-    <Compile Include="Rest\Embed\EmbedAuthor.cs" />
-    <Compile Include="Rest\Embed\EmbedBuilder.cs" />
-    <Compile Include="Rest\Embed\EmbedField.cs" />
-    <Compile Include="Rest\Embed\EmbedFooter.cs" />
-    <Compile Include="Rest\Embed\EmbedImage.cs" />
-    <Compile Include="Rest\Guild\GuildMember.cs" />
-    <Compile Include="Rest\Guild\GuildMemberProperties.cs" />
-    <Compile Include="Rest\Guild\GuildMemberExtensions.cs" />
-    <Compile Include="Rest\Interaction\InteractionExtensions.cs" />
-    <Compile Include="Rest\Interaction\InteractionCallbackType.cs" />
-    <Compile Include="Rest\Interaction\InteractionData.cs" />
-    <Compile Include="Rest\Interaction\InteractionResponseProperties.cs" />
-    <Compile Include="Rest\Interaction\InteractionType.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\ApplicationCommandOptionType.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\CommandOptionChoice.cs" />
+    <Compile Include="Rest\Embed\Builder\EmbedAuthor.cs" />
+    <Compile Include="Rest\Embed\Builder\EmbedBuilder.cs" />
+    <Compile Include="Rest\Embed\Builder\EmbedField.cs" />
+    <Compile Include="Rest\Embed\Builder\EmbedFooter.cs" />
+    <Compile Include="Rest\Embed\Builder\EmbedImage.cs" />
+    <Compile Include="Rest\Guild\Member\GuildMember.cs" />
+    <Compile Include="Rest\Guild\Member\GuildMemberProperties.cs" />
+    <Compile Include="Rest\Guild\Member\GuildMemberExtensions.cs" />
+    <Compile Include="Rest\Interaction\Interaction\InteractionExtensions.cs" />
+    <Compile Include="Rest\Interaction\Interaction\InteractionCallbackType.cs" />
+    <Compile Include="Rest\Interaction\Interaction\InteractionData.cs" />
+    <Compile Include="Rest\Interaction\Interaction\InteractionResponseProperties.cs" />
+    <Compile Include="Rest\Interaction\Interaction\InteractionType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Builder\ApplicationOptionType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Builder\CommandOptionChoice.cs" />
     <Compile Include="Rest\Message\Components\Buttons\ButtonBuilder.cs" />
     <Compile Include="Rest\Message\Components\Buttons\ButtonComponent.cs" />
     <Compile Include="Rest\Message\Components\ComponentType.cs" />
@@ -78,22 +88,26 @@
     <Compile Include="Rest\Message\Components\Modals\ModalComponent.cs" />
     <Compile Include="Rest\Message\Components\Modals\DiscordTextInputStyle.cs" />
     <Compile Include="Rest\Emoji\DiscordEmoji.cs" />
-    <Compile Include="Rest\Message\DiscordMessage.cs" />
-    <Compile Include="Rest\Message\MessageProperties.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\ApplicationCommandType.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\DiscordCommandOption.cs" />
-    <Compile Include="Rest\Interaction\SlashCommands\SlashCommandsExtensions.cs" />
+    <Compile Include="Rest\Message\Extensions\DiscordMessage.cs" />
+    <Compile Include="Rest\Message\Extensions\MessageProperties.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Builder\ApplicationCommandType.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Builder\SlashOptionBuilder.cs" />
+    <Compile Include="Rest\Interaction\SlashCommands\Extensions\SlashCommandsExtensions.cs" />
     <Compile Include="Rest\Interaction\SlashCommands\SlashCommand.cs" />
+    <Compile Include="Rest\Message\Extensions\MessageType.cs" />
+    <Compile Include="Rest\Thread\DiscordThread.cs" />
+    <Compile Include="Rest\Thread\ThreadMetadata.cs" />
+    <Compile Include="Rest\User\DiscordClientUser.cs" />
     <Compile Include="Rest\User\DiscordUser.cs" />
     <Compile Include="Rest\User\NitroSubscriptionType.cs" />
+    <Compile Include="Rest\User\UserExtensions.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Http\DiscordHttpResponse.cs" />
     <Compile Include="Http\DiscordHttpClient.cs" />
     <Compile Include="Gateway\ApiVersion.cs" />
-    <Compile Include="Gateway\DiscordGateawayIntent.cs" />
-    <Compile Include="Gateway\DiscordSocketClient.cs" />
-    <Compile Include="Gateway\DiscordSocketHandler.cs" />
-    <Compile Include="Gateway\DiscordSocketSession.cs" />
+    <Compile Include="Gateway\WebSocket\DiscordSocketClient.cs" />
+    <Compile Include="Gateway\WebSocket\DiscordSocketHandler.cs" />
+    <Compile Include="Gateway\WebSocket\DiscordSocketSession.cs" />
     <Compile Include="Gateway\EventArgs\InteractionEventArgs.cs" />
     <Compile Include="Gateway\EventArgs\LoginEventArgs.cs" />
     <Compile Include="Gateway\EventArgs\MessageEventArgs.cs" />
@@ -101,6 +115,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

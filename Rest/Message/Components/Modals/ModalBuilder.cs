@@ -17,14 +17,12 @@ namespace Discord
         public ModalBuilder SetTitle(string title)
         {
             Title = title;
-
             return this;
         }
 
         public ModalBuilder SetCustomId(string id)
         {
             CustomId = id;
-
             return this;
         }
 
@@ -34,7 +32,6 @@ namespace Discord
             {
                 Components = new List<DiscordFormComponent>() { input }
             });
-
             return this;
         }
     }

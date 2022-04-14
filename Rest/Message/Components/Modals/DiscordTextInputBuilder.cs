@@ -4,6 +4,15 @@ namespace Discord
 {
     public class DiscordTextInputBuilder : DiscordFormComponent
     {
+        public DiscordTextInputBuilder(string label, DiscordTextInputStyle style, bool required = false)
+        {
+            Label = label;
+            Style = style;
+            Required = required;
+        }
+
+        public DiscordTextInputBuilder() { }
+
         [JsonProperty("type")]
         protected ComponentType Type = ComponentType.TextInput;
 

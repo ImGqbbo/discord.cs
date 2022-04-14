@@ -28,42 +28,36 @@ namespace Discord
         public ButtonBuilder SetLabel(string text)
         {
             Label = text;
-
             return this;
         }
 
         public ButtonBuilder SetEmoji(DiscordEmoji emoji)
         {
             Emoji = emoji;
-
             return this;
         }
 
         public ButtonBuilder SetStyle(DiscordButtonStyle style)
         {
             Style = style;
-
             return this;
         }
 
         public ButtonBuilder SetCustomId(string id)
         {
             CustomId = id;
-
             return this;
         }
 
         public ButtonBuilder SetUrl(string url)
         {
             Url = url;
-
             return this;
         }
 
         public ButtonBuilder SetDisabled(bool disabled)
         {
             Disabled = disabled;
-
             return this;
         }
     }
