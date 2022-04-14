@@ -6,6 +6,11 @@ namespace Discord
     {
         public string Url { get; private set; }
 
+        /// <summary>
+        /// Get the display avatar URL of the given user.
+        /// </summary>
+        /// <param name="user">The Discord user.</param>
+        /// <returns>The display avatar URL.</returns>
         internal DiscordImage(DiscordUser user)
         {
             if (user.AvatarHash == null)
@@ -13,6 +18,16 @@ namespace Discord
                 Url = string.Format("https://cdn.discordapp.com/embed/avatars/{0}.png", user.Discriminator % 5);
             }
             else Url = string.Format("https://cdn.discordapp.com/avatars/{0}/{1}.png", user.Id, user.AvatarHash);
+        }
+
+        /// <summary>
+        /// Get the default avatar URL of the given user.
+        /// </summary>
+        /// <param name="user">The Discord user.</param>
+        /// <returns>The default avatar URL.</returns>
+        internal DefaultDiscordImage(DiscordUser user)
+        {
+            Url = string.Format("https://cdn.discordapp.com/embed/avatars/{0}.png", user.Discriminator % 5);
         }
     }
 }
