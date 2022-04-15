@@ -7,7 +7,7 @@ namespace Discord.Gateway
         internal WebSocket webSocket;
         public bool IsConnected;
 
-        public DiscordSocketSession(DiscordSocketHandler handler)
+        public DiscordSocketSession(DiscordHandler handler)
         {
             webSocket = new WebSocket($"wss://gateway.discord.gg/?v={(ushort)handler.ApiVersion}&encoding=json");
             IsConnected = false;

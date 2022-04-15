@@ -10,7 +10,6 @@ namespace Discord.Gateway
     public class DiscordSocketClient : DiscordClient
     {
         internal DiscordSocketSession session;
-        public DiscordSocketHandler Handler;
 
         public event DiscordClientEventHandler<InteractionEventArgs> OnInteractionCreated;
         public event DiscordClientEventHandler<MessageEventArgs> OnMessageCreated;
@@ -25,18 +24,14 @@ namespace Discord.Gateway
         public event DiscordClientEventHandler<DiscordThread> OnThreadDeleted;
         public event DiscordClientEventHandler<GuildMembersChunkEventArgs> OnGuildMembersReceived;
 
-        public DiscordSocketClient(DiscordSocketHandler handler, bool logHttpResponses)
+        public DiscordSocketClient(DiscordHandler handler)
         {
             session = new DiscordSocketSession(handler);
-            _logResponses = logHttpResponses;
-            Handler = handler;
         }
 
-        public DiscordSocketClient(DiscordSocketHandler handler)
+        public DiscordSocketClient()
         {
-            session = new DiscordSocketSession(handler);
-            _logResponses = false;
-            Handler = handler;
+            session = new DiscordSocketSession(new DiscordHandler() { ApiVersion = ApiVersion.V9 });
         }
 
         public void Authenticate(string token)
@@ -96,7 +91,7 @@ namespace Discord.Gateway
             if (!string.IsNullOrEmpty(e.Data))
             {
                 JObject token = JObject.Parse(e.Data);
-                if(_logResponses) Console.WriteLine(token);
+                if(logHttp) Console.WriteLine(token);
 
                 if (token.Value<int>("op") == 10)
                 {

@@ -50,6 +50,8 @@
     <Compile Include="Rest\CDN\DiscordImage.cs" />
     <Compile Include="Rest\Channel\ChannelType.cs" />
     <Compile Include="Rest\Channel\DiscordChannel.cs" />
+    <Compile Include="Rest\DiscordHandler.cs" />
+    <Compile Include="Rest\Embed\DiscordEmbed.cs" />
     <Compile Include="Rest\Guild\Bans\GuildBan.cs" />
     <Compile Include="Rest\Guild\Roles\GuildRole.cs" />
     <Compile Include="Rest\Guild\SocketGuild.cs" />
@@ -59,15 +61,16 @@
     <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashChoice.cs" />
     <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashCommand.cs" />
     <Compile Include="Rest\Interaction\SlashCommands\Handler\SlashOption.cs" />
+    <Compile Include="Rest\Message\Components\DiscordFormComponent.cs" />
     <Compile Include="Rest\Message\Components\Modals\DiscordTextInputBuilder.cs" />
     <Compile Include="Rest\Message\Extensions\MessageExtensions.cs" />
     <Compile Include="Rest\Channel\PrivateChannel.cs" />
     <Compile Include="Rest\DiscordClient.cs" />
-    <Compile Include="Rest\Embed\Builder\EmbedAuthor.cs" />
-    <Compile Include="Rest\Embed\Builder\EmbedBuilder.cs" />
-    <Compile Include="Rest\Embed\Builder\EmbedField.cs" />
-    <Compile Include="Rest\Embed\Builder\EmbedFooter.cs" />
-    <Compile Include="Rest\Embed\Builder\EmbedImage.cs" />
+    <Compile Include="Rest\Embed\Components\EmbedAuthor.cs" />
+    <Compile Include="Rest\Embed\EmbedBuilder.cs" />
+    <Compile Include="Rest\Embed\Components\EmbedField.cs" />
+    <Compile Include="Rest\Embed\Components\EmbedFooter.cs" />
+    <Compile Include="Rest\Embed\Components\EmbedImage.cs" />
     <Compile Include="Rest\Guild\Member\GuildMember.cs" />
     <Compile Include="Rest\Guild\Member\GuildMemberProperties.cs" />
     <Compile Include="Rest\Guild\Member\GuildMemberExtensions.cs" />
@@ -83,7 +86,6 @@
     <Compile Include="Rest\Message\Components\ComponentType.cs" />
     <Compile Include="Rest\Message\Components\Buttons\DiscordButtonStyle.cs" />
     <Compile Include="Rest\Message\Components\DiscordActionRow.cs" />
-    <Compile Include="Rest\Message\Components\DiscordFormComponent.cs" />
     <Compile Include="Rest\Message\Components\Modals\ModalBuilder.cs" />
     <Compile Include="Rest\Message\Components\Modals\ModalComponent.cs" />
     <Compile Include="Rest\Message\Components\Modals\DiscordTextInputStyle.cs" />
@@ -104,9 +106,8 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Http\DiscordHttpResponse.cs" />
     <Compile Include="Http\DiscordHttpClient.cs" />
-    <Compile Include="Gateway\ApiVersion.cs" />
+    <Compile Include="Misc\ApiVersion.cs" />
     <Compile Include="Gateway\WebSocket\DiscordSocketClient.cs" />
-    <Compile Include="Gateway\WebSocket\DiscordSocketHandler.cs" />
     <Compile Include="Gateway\WebSocket\DiscordSocketSession.cs" />
     <Compile Include="Gateway\EventArgs\InteractionEventArgs.cs" />
     <Compile Include="Gateway\EventArgs\LoginEventArgs.cs" />
@@ -115,7 +116,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include=".editorconfig" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

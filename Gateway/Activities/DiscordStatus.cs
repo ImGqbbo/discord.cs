@@ -6,5 +6,6 @@
         Idle,
         DoNotDisturb,
         Offline,
+        Invisible
     }
 }
