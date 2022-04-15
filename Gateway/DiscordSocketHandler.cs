@@ -1,4 +1,6 @@
-﻿namespace Discord.Gateway
+﻿using Discord;
+
+namespace Discord.Gateway
 {
     public class DiscordSocketHandler
     {
@@ -8,6 +10,6 @@
         }
 
         public DiscordGateawayIntent Intents { get; set; }
-        public ApiVersion ApiVersion = ApiVersion.V9;
+        public ApiVersion ApiVersion = ApiVersion.Default;
     }
 }
