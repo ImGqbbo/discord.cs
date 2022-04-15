@@ -15,6 +15,6 @@ namespace Discord
         public ulong? CommandId { get; private set; }
 
         [JsonProperty("options")]
-        public List<SlashCommandOption> Options { get; private set; }
+        public IReadOnlyList<SlashCommandOption> Options { get; private set; }
     }
 }

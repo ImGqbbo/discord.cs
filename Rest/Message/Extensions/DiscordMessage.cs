@@ -45,8 +45,8 @@ namespace Discord
         [JsonProperty("timestamp")]
         public DateTime Timestamp { get; private set; }
 
-        //[JsonProperty("embeds")]
-        //public IReadOnlyList<DiscordEmbed> Embeds { get; private set; }
+        [JsonProperty("embeds")]
+        public IReadOnlyList<DiscordEmbed> Embeds { get; private set; }
 
         [JsonProperty("referenced_message")]
         public DiscordMessage ReferencedMessage { get; private set; }

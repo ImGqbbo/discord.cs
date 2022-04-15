@@ -13,10 +13,10 @@ namespace Discord
         public string Name { get; private set; }
 
         [JsonProperty("roles")]
-        public List<GuildRole> Roles { get; private set; }
+        public IReadOnlyList<GuildRole> Roles { get; private set; }
 
         [JsonProperty("channels")]
-        public List<DiscordChannel> Channels { get; private set; }
+        public IReadOnlyList<DiscordChannel> Channels { get; private set; }
 
         [JsonProperty("description")]
         public string Description { get; private set; }

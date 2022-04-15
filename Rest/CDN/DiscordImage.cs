@@ -19,15 +19,5 @@ namespace Discord
             }
             else Url = string.Format("https://cdn.discordapp.com/avatars/{0}/{1}.png", user.Id, user.AvatarHash);
         }
-
-        /// <summary>
-        /// Get the default avatar URL of the given user.
-        /// </summary>
-        /// <param name="user">The Discord user.</param>
-        /// <returns>The default avatar URL.</returns>
-        internal DefaultDiscordImage(DiscordUser user)
-        {
-            Url = string.Format("https://cdn.discordapp.com/embed/avatars/{0}.png", user.Discriminator % 5);
-        }
     }
 }

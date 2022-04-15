@@ -8,39 +8,40 @@ namespace Discord
     public class EmbedBuilder
     {
         [JsonProperty("color")]
-        private uint? _color;
+        protected uint? _color;
+
         [JsonProperty("fields")]
-        private List<EmbedField> Fields = new List<EmbedField>();
+        protected List<EmbedField> Fields = new List<EmbedField>();
 
         [JsonProperty("title")]
-        private string Title { get; set; }
+        protected string Title { get; set; }
 
         [JsonProperty("description")]
-        private string Description { get; set; }
+        protected string Description { get; set; }
 
         [JsonProperty("url")]
-        private string Url { get; set; }
+        protected string Url { get; set; }
 
         [JsonProperty("timestamp")]
-        private DateTime? Timestamp { get; set; }
+        protected DateTime? Timestamp { get; set; }
 
-        private Color Color
+        protected Color Color
         {
-            get => Color.FromArgb((int)this._color.Value);
-            set => this._color = new uint?((uint)Color.FromArgb(0, (int)value.R, (int)value.G, (int)value.B).ToArgb());
+            get => Color.FromArgb((int)_color.Value);
+            set => _color = (uint)Color.FromArgb(0, value.R, value.G, value.B).ToArgb();
         }
 
         [JsonProperty("footer")]
-        private EmbedFooter Footer { get; set; }
+        protected EmbedFooter Footer { get; set; }
 
         [JsonProperty("author")]
-        private EmbedAuthor Author { get; set; }
+        protected EmbedAuthor Author { get; set; }
 
         [JsonProperty("image")]
-        private EmbedImage Image { get; set; }
+        protected EmbedImage Image { get; set; }
 
         [JsonProperty("thumbnail")]
-        private EmbedImage Thumbnail { get; set; }
+        protected EmbedImage Thumbnail { get; set; }
 
         public EmbedBuilder SetTitle(string title)
         {
@@ -81,7 +82,6 @@ namespace Discord
                 Width = width,
                 ProxyUrl = proxyUrl
             };
-
             return this;
         }
 
@@ -94,13 +94,12 @@ namespace Discord
                 Width = width,
                 ProxyUrl = proxyUrl
             };
-
             return this;
         }
 
         public EmbedBuilder SetFooter(string text, string iconUrl = null)
         {
-            this.Footer = new EmbedFooter()
+            Footer = new EmbedFooter()
             {
                 Text = text,
                 IconUrl = iconUrl

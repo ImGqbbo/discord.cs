@@ -9,7 +9,7 @@ namespace Discord
     {
         public static async Task RespondToInteractionAsync(this DiscordClient client, ulong interactionId, string interactionToken, InteractionCallbackType type, InteractionResponseProperties properties)
         {
-            string data = JsonConvert.SerializeObject(new { type = type, data = properties });
+            string data = JsonConvert.SerializeObject(new { type, data = properties });
             await client.HttpClient.PostAsync(string.Format("https://discord.com/api/v9/interactions/{0}/{1}/callback", interactionId, interactionToken), data);
 
             if (type == InteractionCallbackType.DeferredMessage)
