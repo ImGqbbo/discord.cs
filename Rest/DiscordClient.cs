@@ -33,13 +33,13 @@ namespace Discord
 
         public DiscordClient()
         {
-            Handler = new DiscordHandler() { ApiVersion = ApiVersion.V9 };
+            Handler = new DiscordHandler() { ApiVersion = ApiVersion.Default };
             HttpClient = new DiscordHttpClient(this);
         }
 
         public DiscordClient(string token)
         {
-            Handler = new DiscordHandler() { ApiVersion = ApiVersion.V9 };
+            Handler = new DiscordHandler() { ApiVersion = ApiVersion.Default };
             HttpClient = new DiscordHttpClient(this);
             Token = "Bot " + token;
         }

@@ -1,6 +1,15 @@
-![unknown (1)](https://user-images.githubusercontent.com/78982354/163561001-f588bd8f-3325-4125-b94a-99eeec293d6d.png)
-# discord.cs
-Unofficial API wrapper for https://discord.com.
+<div align="center">
+  <br/>
+  <p>
+    <a href="https://github.com/ImGqbbo/discord.cs"><img src="https://github.com/ImGqbbo/discord.cs/blob/main/images/DiscordCSLogo.png" width="600" alt="discord.cs" /></a>
+  </p>
+  <br/>
+  <p>
+    <a href="https://github.com/ImGqbbo/discord.cs/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
+  </p>
+</div>
+
+**[discord.cs](https://github.com/ImGqbbo/discord.cs) is a [Discord](https://www.discord.com) API wrapper written for C#.**
 
 # How to use it?
 As first decide if use the websocket client or the rest client
@@ -22,8 +31,4 @@ DiscordClient client = new DiscordClient("your bot token");
 client.SendMessage(123456789012345678, "Hello, world!");
 ```
 
-# Contact or report a bug
-- Discord: ImGqbbo#9549
-- Telegram: @ImGqbbo
-
-Ispired by Anarchy & discord.js
+Ispired by [Anarchy](https://github.com/not-ilinked/Anarchy) & [discord.js](https://github.com/discordjs/discord.js)

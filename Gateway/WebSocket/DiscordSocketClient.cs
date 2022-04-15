@@ -91,7 +91,6 @@ namespace Discord.Gateway
             if (!string.IsNullOrEmpty(e.Data))
             {
                 JObject token = JObject.Parse(e.Data);
-                if(logHttp) Console.WriteLine(token);
 
                 if (token.Value<int>("op") == 10)
                 {
