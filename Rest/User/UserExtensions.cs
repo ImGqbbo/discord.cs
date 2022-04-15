@@ -9,13 +9,13 @@ namespace Discord
     {
         public static async Task<DiscordClientUser> GetCurrentUserAsync(this DiscordClient client)
         {
-            var response = await client.HttpClient.GetAsync("https://discord.com/api/v9/users/@me");
+            var response = await client.HttpClient.GetAsync(string.Format("{0}/users/@me", DiscordClient.Handler.BaseURL));
             return JsonConvert.DeserializeObject<DiscordClientUser>(response.Result);
         }
 
         public static async Task<DiscordUser> GetUserAsync(this DiscordClient client, ulong userId)
         {
-            var response = await client.HttpClient.GetAsync(string.Format("https://discord.com/api/v9/users/{0}", userId));
+            var response = await client.HttpClient.GetAsync(string.Format("{0}/users/{1}", DiscordClient.Handler.BaseURL, userId));
             return JsonConvert.DeserializeObject<DiscordUser>(response.Result);
         }
 
@@ -31,7 +31,7 @@ namespace Discord
 
         public static async Task<ulong> CreateDMAsync(this DiscordClient client, ulong userId)
         {
-            var response = await client.HttpClient.PostAsync("https://discord.com/api/v9/users/@me/channels", "{\"recipient_id\":\"" + userId + "\"}");
+            var response = await client.HttpClient.PostAsync(string.Format("{0}/users/@me/channels", DiscordClient.Handler.BaseURL), "{\"recipient_id\":\"" + userId + "\"}");
             JObject parsed = JObject.Parse(response.Result);
 
             return parsed.Value<ulong>("id");

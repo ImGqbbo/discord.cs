@@ -21,11 +21,6 @@ namespace Discord.Http
 
         private async Task<DiscordHttpResponse> RawAsync(HttpMethod method, string endpoint, string data = null)
         {
-            if (endpoint.StartsWith("https://discord.com/api/v9"))
-            {
-                endpoint = endpoint.Replace("https://discord.com/api/v9", _baseUrl);
-            }
-
             _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", _client.Token);
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "discord.cs/0.1");

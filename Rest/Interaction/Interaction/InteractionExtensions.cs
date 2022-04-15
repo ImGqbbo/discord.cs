@@ -10,7 +10,7 @@ namespace Discord
         public static async Task RespondToInteractionAsync(this DiscordClient client, ulong interactionId, string interactionToken, InteractionCallbackType type, InteractionResponseProperties properties)
         {
             string data = JsonConvert.SerializeObject(new { type, data = properties });
-            await client.HttpClient.PostAsync(string.Format("https://discord.com/api/v9/interactions/{0}/{1}/callback", interactionId, interactionToken), data);
+            await client.HttpClient.PostAsync(string.Format("{0}/interactions/{1}/{2}/callback", DiscordClient.Handler.BaseURL, interactionId, interactionToken), data);
 
             if (type == InteractionCallbackType.DeferredMessage)
             {
@@ -26,7 +26,7 @@ namespace Discord
         public static async Task EditInteractionResponseAsync(this DiscordClient client, string interactionToken, InteractionResponseProperties properties)
         {
             string data = JsonConvert.SerializeObject(properties);
-            await client.HttpClient.PatchAsync(string.Format("https://discord.com/api/v9/webhooks/{0}/{1}/messages/@original", client.GetCurrentUser().Id, interactionToken), data);
+            await client.HttpClient.PatchAsync(string.Format("{0}/webhooks/{1}/{2}/messages/@original", DiscordClient.Handler.BaseURL, client.GetCurrentUser().Id, interactionToken), data);
         }
 
         public static void EditInteractionResponse(this DiscordClient client, string interactionToken, InteractionResponseProperties properties)
@@ -41,7 +41,7 @@ namespace Discord
                 type = 9,
                 data = modal
             });
-            await client.HttpClient.PostAsync(string.Format("https://discord.com/api/v9/interactions/{0}/{1}/callback", interactionId, interactionToken), data);
+            await client.HttpClient.PostAsync(string.Format("{0}/interactions/{0}/{1}/callback", DiscordClient.Handler.BaseURL, interactionId, interactionToken), data);
         }
 
         public static void RespondWithModal(this DiscordClient client, ulong interactionId, string interactionToken, ModalBuilder modal)

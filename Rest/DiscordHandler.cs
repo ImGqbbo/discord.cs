@@ -4,6 +4,8 @@
     {
         public DiscordHandler() { }
 
-        public ApiVersion ApiVersion = ApiVersion.V9;
+        public ApiVersion ApiVersion = ApiVersion.Default;
+
+        public string BaseURL = string.Format("https://discord.com/api/v{0}", ApiVersion);
     }
 }
