@@ -115,7 +115,6 @@ namespace Discord.Gateway
                 switch (t)
                 {
                     case "INTERACTION_CREATE":
-                        Console.WriteLine(token);
                         InteractionEventArgs args = token["d"].ToObject<InteractionEventArgs>();
                         if (args.Type == InteractionType.ModalSubmit)
                         {
