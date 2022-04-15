@@ -1,6 +1,6 @@
 ﻿namespace Discord.Gateway
 {
-    public enum ActivityType
+    public enum ActivityType : ushort
     {
         Game = 0,
         Streaming = 1,

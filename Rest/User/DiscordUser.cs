@@ -28,11 +28,19 @@ namespace Discord
         [JsonProperty("flags")]
         public uint? Flags { get; private set; }
 
-        [JsonProperty("premium_type")]
-        public NitroSubscriptionType? PremiumType { get; private set; }
+        /// <summary>
+        /// This function returns the timestamp of when the user was created.
+        /// To take the timestamp you need to convert the Snowflake, which is the user id. (For Snowflake: https://discord.com/developers/docs/reference#snowflakes).
+        /// You need to divide the user id for 2^22, add the Discord epoch (1420070400000 = the first second of 2015) and divide for milliseconds per second (1000).
+        /// </summary>
+        /// <returns>The timestamp of when the user was created.</returns>
+        public string createdAtTimestamp() => (Id / 2^22 + 1420070400000) / 1000;
 
-        [JsonProperty("public_flags")]
-        public uint? PublicFlags { get; private set; }
+        /// <summary>
+        /// Convert the timestamp of when the user was created into a DateTime.
+        /// </summary>
+        /// <returns>The DateTime of when the user was created.</returns>
+        public string createdAt() => new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(Math.Round(createdAtTimestamp() / 1000d)).ToLocalTime();
 
         public string Tag() => $"{Username}#{"0000".Remove(4 - Discriminator.ToString().Length) + Discriminator}";
 
@@ -41,6 +49,14 @@ namespace Discord
             get
             {
                 return new DiscordImage(this);
+            }
+        }
+
+        public DiscordImage DefaultAvatar
+        {
+            get
+            {
+                return new DefaultDiscordImage(this);
             }
         }
     }
