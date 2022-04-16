@@ -30,5 +30,8 @@ Rest:
 DiscordClient client = new DiscordClient("your bot token");
 client.SendMessage(123456789012345678, "Hello, world!");
 ```
+# How to contact me?
+- Discord ImGqbbo#9549
+- Telegram https://t.me/ImGqbbo
 
 Ispired by [Anarchy](https://github.com/not-ilinked/Anarchy) & [discord.js](https://github.com/discordjs/discord.js)
