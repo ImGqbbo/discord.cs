@@ -9,7 +9,7 @@
   </p>
 </div>
 
-**[discord.cs](https://github.com/ImGqbbo/discord.cs) is a [Discord](https://www.discord.com) API wrapper written for C#.**
+**[discord.cs](https://github.com/ImGqbbo/discord.cs) is a [Discord](https://www.discord.com) API wrapper written in C#.**
 
 # How to use it?
 As first decide if use the websocket client or the rest client
