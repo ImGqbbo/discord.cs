@@ -9,7 +9,7 @@ namespace Discord
     {
         public static async Task BulkOverwriteGlobalSlashCommandsAsync(this DiscordClient client, List<SlashCommandBuilder> commands)
         {
-            var res = await client.HttpClient.PutAsync(string.Format("{0}/applications/{1}/commands", DiscordClient.Handler.BaseURL, client.User.Id), JsonConvert.SerializeObject(commands));
+             await client.HttpClient.PutAsync(string.Format("/applications/{0}/commands", client.User.Id), JsonConvert.SerializeObject(commands));
         }
 
         public static void BulkOverwriteGlobalSlashCommands(this DiscordClient client, List<SlashCommandBuilder> commands)
@@ -19,7 +19,7 @@ namespace Discord
 
         public static async Task<ApplicationCommand> RegisterGlobalSlashCommandAsync(this DiscordClient client, SlashCommandBuilder properties)
         {
-            var res = await client.HttpClient.PostAsync(string.Format("{0}/applications/{1}/commands", DiscordClient.Handler.BaseURL, client.User.Id), JsonConvert.SerializeObject(properties));
+            var res = await client.HttpClient.PostAsync(string.Format("/applications/{0}/commands", client.User.Id), JsonConvert.SerializeObject(properties));
             return JsonConvert.DeserializeObject<ApplicationCommand>(res.Result);
         }
 
@@ -30,7 +30,7 @@ namespace Discord
 
         public static async Task<ApplicationCommand> RegisterGuildSlashCommandAsync(this DiscordClient client, ulong guildId, SlashCommandBuilder properties)
         {
-            var res = await client.HttpClient.PostAsync(string.Format("{0}/applications/{1}/guilds/{2}/commands", DiscordClient.Handler.BaseURL, client.User.Id, guildId), JsonConvert.SerializeObject(properties));
+            var res = await client.HttpClient.PostAsync(string.Format("/applications/{0}/guilds/{1}/commands", client.User.Id, guildId), JsonConvert.SerializeObject(properties));
             return JsonConvert.DeserializeObject<ApplicationCommand>(res.Result);
         }
 
@@ -41,7 +41,7 @@ namespace Discord
 
         public static async Task DeleteSlashCommandAsync(this DiscordClient client, ulong commandId)
         {
-            await client.HttpClient.DeleteAsync(string.Format("{0}/applications/{1}/commands/{2}", DiscordClient.Handler.BaseURL, client.User.Id, commandId));
+            await client.HttpClient.DeleteAsync(string.Format("/applications/{0}/commands/{1}", client.User.Id, commandId));
         }
 
         public static void DeleteSlashCommand(this DiscordClient client, ulong commandId)
@@ -51,7 +51,7 @@ namespace Discord
 
         public static async Task<IReadOnlyList<ApplicationCommand>> GetGlobalSlashCommandsAsync(this DiscordClient client)
         {
-            var res = await client.HttpClient.GetAsync(string.Format("{0}/applications/{1}/commands", DiscordClient.Handler.BaseURL, client.User.Id));
+            var res = await client.HttpClient.GetAsync(string.Format("/applications/{0}/commands", client.User.Id));
             return JsonConvert.DeserializeObject<IReadOnlyList<ApplicationCommand>>(res.Result);
         }
 

@@ -17,10 +17,7 @@ namespace Discord
             {
                 Url = string.Format("https://cdn.discordapp.com/embed/avatars/{0}.png", user.Discriminator % 5);
             }
-            else
-            {
-                Url = string.Format("https://cdn.discordapp.com/avatars/{0}/{1}.png", user.Id, user.AvatarHash);
-            }
+            else Url = string.Format("https://cdn.discordapp.com/avatars/{0}/{1}.png", user.Id, user.AvatarHash);
         }
     }
 }

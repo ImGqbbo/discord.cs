@@ -31,7 +31,7 @@ namespace Discord.Gateway
 
         public DiscordSocketClient()
         {
-            session = new DiscordSocketSession(new DiscordHandler() { ApiVersion = ApiVersion.V9 });
+            session = new DiscordSocketSession(new DiscordHandler() { ApiVersion = ApiVersion.Default });
         }
 
         public void Authenticate(string token)
@@ -91,6 +91,7 @@ namespace Discord.Gateway
             if (!string.IsNullOrEmpty(e.Data))
             {
                 JObject token = JObject.Parse(e.Data);
+                if(logHttp) Console.WriteLine(token);
 
                 if (token.Value<int>("op") == 10)
                 {
