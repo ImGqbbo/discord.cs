@@ -16,7 +16,10 @@ As first decide if use the websocket client or the rest client
 
 Websocket:
 ```csharp
-DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketHandler() { ApiVersion = ApiVersion.Default });
+DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketHandler() 
+{ 
+    ApiVersion = ApiVersion.Default
+});
 
 client.Authenticate("your bot token here");
 client.OnLoggedIn += (s, e) => 
