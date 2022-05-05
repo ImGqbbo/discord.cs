@@ -16,12 +16,14 @@ As first decide if use the websocket client or the rest client
 
 Websocket:
 ```csharp
-DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketHandler() 
+DiscordSocketClient client = new DiscordSocketClient()
+.SetToken("bot-token")
+.SetHandler(new DiscordHandler() 
 { 
     ApiVersion = ApiVersion.Default
 });
 
-client.Authenticate("your bot token here");
+client.Authenticate();
 client.OnLoggedIn += (s, e) => 
 {
     Console.WriteLine("Logged in as: " + e.User.Tag());
@@ -30,7 +32,8 @@ client.OnLoggedIn += (s, e) =>
 
 Rest:
 ```csharp
-DiscordClient client = new DiscordClient("your bot token");
+DiscordClient client = new DiscordClient()
+.SetToken("bot-token");
 client.SendMessage(123456789012345678, "Hello, world!");
 ```
 # How to contact me?
